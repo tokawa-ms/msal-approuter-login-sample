@@ -8,8 +8,17 @@ export const GET = (request: NextRequest) => {
   const rawRedirect = searchParams.get("redirect") ?? "/";
   const locale = isLocale(nextLocale) ? nextLocale : defaultLocale;
 
-  // Prevent open-redirect: only allow relative paths on the same origin.
-  const safeRedirect = rawRedirect.startsWith("/") && !rawRedirect.startsWith("//") ? rawRedirect : "/";
+  // Prevent open-redirect: only allow paths on the same origin.
+  let safeRedirect = "/";
+  try {
+    const target = new URL(rawRedirect, request.url);
+    const origin = new URL(request.url).origin;
+    if (target.origin === origin) {
+      safeRedirect = rawRedirect;
+    }
+  } catch {
+    // invalid URL – fall back to "/"
+  }
 
   const response = NextResponse.redirect(new URL(safeRedirect, request.url));
   response.cookies.set(localeCookieName, locale, {
