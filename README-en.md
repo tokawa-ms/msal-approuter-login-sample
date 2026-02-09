@@ -1,4 +1,4 @@
-# msal-app-test
+# MSAL.js + App Router Login Sample
 
 [日本語](README.md) | English
 
