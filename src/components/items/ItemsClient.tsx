@@ -58,7 +58,7 @@ export default function ItemsClient({ dictionary }: ItemsClientProps) {
     let isActive = true;
     const controller = new AbortController();
 
-    const loadPhoto = async () => {
+    const loadProfile = async () => {
       if (!account) {
         setLoading(false);
         setProfile(null);
@@ -147,7 +147,7 @@ export default function ItemsClient({ dictionary }: ItemsClientProps) {
       }
     };
 
-    loadPhoto().catch((err) => console.error(err));
+    loadProfile().catch((err) => console.error(err));
 
     return () => {
       isActive = false;
