@@ -37,15 +37,15 @@ cp .env.template .env
 
 2. Fill in required values
 
-| Variable | Description |
-| --- | --- |
-| `PORT` | Port to listen on (e.g., 3000) |
-| `NODE_ENV` | `development` / `production` |
-| `NEXT_PUBLIC_AZURE_AD_CLIENT_ID` | Entra ID application (client) ID |
-| `NEXT_PUBLIC_AZURE_AD_TENANT_ID` | Entra ID directory (tenant) ID |
-| `NEXT_PUBLIC_AZURE_AD_REDIRECT_URI` | Redirect URI (e.g., `http://localhost:3000/login`) |
-| `STORAGE_ACCOUNT_URL` | Storage account URL (`https://{account}.blob.core.windows.net`) |
-| `APPLICATIONINSIGHTS_CONNECTION_STRING` | (Optional) App Insights connection string |
+| Variable                                | Description                                                     |
+| --------------------------------------- | --------------------------------------------------------------- |
+| `PORT`                                  | Port to listen on (e.g., 3000)                                  |
+| `NODE_ENV`                              | `development` / `production`                                    |
+| `NEXT_PUBLIC_AZURE_AD_CLIENT_ID`        | Entra ID application (client) ID                                |
+| `NEXT_PUBLIC_AZURE_AD_TENANT_ID`        | Entra ID directory (tenant) ID                                  |
+| `NEXT_PUBLIC_AZURE_AD_REDIRECT_URI`     | Redirect URI (e.g., `http://localhost:3000/auth/popup.html`)    |
+| `STORAGE_ACCOUNT_URL`                   | Storage account URL (`https://{account}.blob.core.windows.net`) |
+| `APPLICATIONINSIGHTS_CONNECTION_STRING` | (Optional) App Insights connection string                       |
 
 3. Install dependencies
 
@@ -62,8 +62,8 @@ npm run dev
 ## Microsoft Entra ID Setup
 
 1. Create an app registration in Entra ID
-2. Add `http://localhost:3000/login` as a redirect URI
-3. Add `https://<your-domain>/login` for production
+2. Add `http://localhost:3000/auth/popup.html` as a redirect URI
+3. Add `https://<your-domain>/auth/popup.html` for production
 
 ## Azure Storage Setup
 
