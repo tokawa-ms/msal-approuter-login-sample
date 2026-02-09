@@ -1,19 +1,49 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import type { PublicClientApplication } from "@azure/msal-browser";
 import { MsalProvider } from "@azure/msal-react";
-import { msalInstance } from "@/lib/msal/instance";
 
 type AppProvidersProps = {
   children: React.ReactNode;
 };
 
 export default function AppProviders({ children }: AppProvidersProps) {
+  const [instance, setInstance] = useState<PublicClientApplication | null>(null);
+
   useEffect(() => {
-    msalInstance
-      .handleRedirectPromise()
-      .catch((error) => console.error("MSAL redirect error", error));
+    const initMsal = async () => {
+      try {
+        const [{ PublicClientApplication }, { msalConfig }] = await Promise.all([
+          import("@azure/msal-browser"),
+          import("@/lib/msal/config"),
+        ]);
+
+        const createdInstance = new PublicClientApplication(msalConfig);
+        await createdInstance.initialize();
+
+        const response = await createdInstance.handleRedirectPromise();
+        if (response?.account) {
+          createdInstance.setActiveAccount(response.account);
+        }
+
+        const accounts = createdInstance.getAllAccounts();
+        if (!createdInstance.getActiveAccount() && accounts.length > 0) {
+          createdInstance.setActiveAccount(accounts[0]);
+        }
+
+        setInstance(createdInstance);
+      } catch (error) {
+        console.error("MSAL redirect error", error);
+      }
+    };
+
+    void initMsal();
   }, []);
 
-  return <MsalProvider instance={msalInstance}>{children}</MsalProvider>;
+  if (!instance) {
+    return null;
+  }
+
+  return <MsalProvider instance={instance}>{children}</MsalProvider>;
 }

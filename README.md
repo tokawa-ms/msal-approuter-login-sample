@@ -37,15 +37,15 @@ cp .env.template .env
 
 2. 必要な値を設定
 
-| 変数 | 説明 |
-| --- | --- |
-| `PORT` | 開発/本番で待ち受けるポート（例: 3000） |
-| `NODE_ENV` | `development` / `production` |
-| `NEXT_PUBLIC_AZURE_AD_CLIENT_ID` | Entra ID のアプリケーション (クライアント) ID |
-| `NEXT_PUBLIC_AZURE_AD_TENANT_ID` | Entra ID のディレクトリ (テナント) ID |
-| `NEXT_PUBLIC_AZURE_AD_REDIRECT_URI` | リダイレクト URI（例: `http://localhost:3000/login`） |
-| `STORAGE_ACCOUNT_URL` | Storage アカウント URL（例: `https://{account}.blob.core.windows.net`） |
-| `APPLICATIONINSIGHTS_CONNECTION_STRING` | （任意）App Insights 接続文字列 |
+| 変数                                    | 説明                                                                    |
+| --------------------------------------- | ----------------------------------------------------------------------- |
+| `PORT`                                  | 開発/本番で待ち受けるポート（例: 3000）                                 |
+| `NODE_ENV`                              | `development` / `production`                                            |
+| `NEXT_PUBLIC_AZURE_AD_CLIENT_ID`        | Entra ID のアプリケーション (クライアント) ID                           |
+| `NEXT_PUBLIC_AZURE_AD_TENANT_ID`        | Entra ID のディレクトリ (テナント) ID                                   |
+| `NEXT_PUBLIC_AZURE_AD_REDIRECT_URI`     | リダイレクト URI（例: `http://localhost:3000/auth/popup.html`）         |
+| `STORAGE_ACCOUNT_URL`                   | Storage アカウント URL（例: `https://{account}.blob.core.windows.net`） |
+| `APPLICATIONINSIGHTS_CONNECTION_STRING` | （任意）App Insights 接続文字列                                         |
 
 3. 依存関係をインストール
 
@@ -62,8 +62,8 @@ npm run dev
 ## Microsoft Entra ID の設定
 
 1. Entra ID にアプリ登録を作成
-2. リダイレクト URI に `http://localhost:3000/login` を追加
-3. 本番で使う場合は `https://<your-domain>/login` も追加
+2. リダイレクト URI に `http://localhost:3000/auth/popup.html` を追加
+3. 本番で使う場合は `https://<your-domain>/auth/popup.html` も追加
 
 ## Azure Storage の設定
 
