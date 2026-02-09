@@ -21,6 +21,11 @@ MSAL.js を使った **Microsoft Entra ID ログイン** と、Microsoft Graph A
 - 言語切り替え（`/api/lang` を経由して Cookie を設定）
 - ヘルスチェック API: `/api/health`
 
+## ドキュメント
+
+- 実装概要・認証フロー・設定の詳細は [/docs/README.md](docs/README.md) を参照してください。
+- English documentation: [/docs/README-en.md](docs/README-en.md)
+
 ## 必要な環境
 
 - Node.js 20 LTS 以上

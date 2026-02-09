@@ -21,6 +21,11 @@ This is a Next.js (App Router) MPA that uses **MSAL.js** for Microsoft Entra ID 
 - Language switch via `/api/lang` (cookie-based, no middleware)
 - Health check API: `/api/health`
 
+## Documentation
+
+- For implementation details, auth flow, and configuration, see [/docs/README.md](docs/README.md).
+- English version: [/docs/README-en.md](docs/README-en.md)
+
 ## Prerequisites
 
 - Node.js 20 LTS or later
