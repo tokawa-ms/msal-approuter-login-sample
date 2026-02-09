@@ -4,7 +4,6 @@ import { z } from "zod";
 const serverEnvSchema = z.object({
   NODE_ENV: z.enum(["development", "production", "test"]),
   PORT: z.string().min(1, "PORT is required"),
-  STORAGE_ACCOUNT_URL: z.string().url(),
   APPLICATIONINSIGHTS_CONNECTION_STRING: z.string().optional(),
 });
 
