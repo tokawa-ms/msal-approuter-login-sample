@@ -48,15 +48,21 @@ export const resources = {
     aboutTitle: "このアプリについて",
     aboutBody:
       "Next.js App Router で複数ページ構成を作成し、MSAL.js と Microsoft Graph API を統合しています。",
+    aboutDetailAuth:
+      "MSAL.js の redirect フローでサインインし、クライアント側でアクセストークンを取得します。",
+    aboutDetailGraph:
+      "Microsoft Graph API の /me を呼び出してプロフィール情報を表示し、必要に応じて同意画面を案内します。",
+    aboutDetailLang:
+      "言語切り替えは /api/lang の proxy で Cookie を更新し、middleware を使わずに切り替えます。",
+    aboutDetailContainer:
+      "フロントと API を同一プロセスで提供し、Azure Container Apps での 1 コンテナ運用を想定しています。",
     itemsTitle: "プロフィール",
     itemsLead:
       "Microsoft Graph API から本人のプロフィール情報を取得します。",
     itemsLoading: "プロフィールを読み込み中...",
-    itemsNoPhoto: "プロフィール情報が取得できませんでした。",
     itemsConsentNeeded: "Graph API の権限許可が必要です。",
     itemsConsentAction: "権限を許可する",
     itemsRequiresLogin: "プロフィールを表示するにはログインが必要です。",
-    itemsAltPhoto: "プロフィール",
     itemsError: "プロフィールの取得に失敗しました。",
     itemsProfileTitle: "取得したプロフィール",
     itemsProfileName: "表示名",
@@ -118,15 +124,21 @@ export const resources = {
     aboutTitle: "About this app",
     aboutBody:
       "Built with Next.js App Router, integrating MSAL.js and Microsoft Graph API.",
+    aboutDetailAuth:
+      "Uses the MSAL.js redirect flow to sign in and acquire tokens on the client.",
+    aboutDetailGraph:
+      "Calls Microsoft Graph /me to display profile details and prompts for consent when required.",
+    aboutDetailLang:
+      "Language switching updates cookies via the /api/lang proxy without middleware.",
+    aboutDetailContainer:
+      "Serves pages and API routes in one process, targeting a single-container Azure Container Apps deploy.",
     itemsTitle: "Profile",
     itemsLead:
       "Fetches your profile details from Microsoft Graph API.",
     itemsLoading: "Loading profile...",
-    itemsNoPhoto: "Profile data is unavailable.",
     itemsConsentNeeded: "Microsoft Graph permission is required.",
     itemsConsentAction: "Grant permission",
     itemsRequiresLogin: "Sign in to view the profile.",
-    itemsAltPhoto: "Profile",
     itemsError: "Failed to load profile.",
     itemsProfileTitle: "Profile details",
     itemsProfileName: "Display name",

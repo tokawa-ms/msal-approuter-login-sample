@@ -153,7 +153,7 @@ export default function ItemsClient({ dictionary }: ItemsClientProps) {
       isActive = false;
       controller.abort();
     };
-  }, [account, dictionary.itemsConsentNeeded, dictionary.itemsError, dictionary.itemsNoPhoto, instance]);
+  }, [account, dictionary.itemsConsentNeeded, dictionary.itemsError, instance]);
 
   const handleConsent = async () => {
     if (inProgress !== "none") {

@@ -2,22 +2,30 @@
 
 [日本語](README.md) | English
 
+![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=white)
+![MSAL.js](https://img.shields.io/badge/MSAL.js-5E5E5E?logo=microsoft&logoColor=white)
+![Microsoft Graph](https://img.shields.io/badge/Microsoft%20Graph-5E5E5E?logo=microsoft&logoColor=white)
+![Azure Container Apps](https://img.shields.io/badge/Azure%20Container%20Apps-0078D4?logo=microsoftazure&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+
 ## Overview
 
-This is a Next.js (App Router) MPA that uses **MSAL.js** for Microsoft Entra ID login and Microsoft Graph API to fetch your **profile photo**. It serves pages and API routes in a single Node.js process, designed for Azure Container Apps with a single container.
+This is a Next.js (App Router) MPA that uses **MSAL.js** for Microsoft Entra ID login and Microsoft Graph API to fetch your **profile details**. It serves pages and API routes in a single Node.js process, designed for Azure Container Apps with a single container.
 
 ## Pages
 
 - `/` Home (visible without login)
 - `/login` Login page
 - `/about` About this app
-- `/items` Microsoft Graph profile photo
+- `/items` Microsoft Graph profile details
 - `/settings` Settings
 
 ## Key Features
 
 - MSAL.js sign-in with Microsoft Entra ID
-- Microsoft Graph API for the signed-in profile photo
+- Microsoft Graph API for the signed-in profile details
 - Language switch via `/api/lang` (cookie-based, no middleware)
 - Health check API: `/api/health`
 
@@ -92,4 +100,4 @@ docker run --rm -p 3000:3000 -e PORT=3000 --env-file .env msal-app-test
 
 - MSAL uses `loginRedirect` for the sign-in flow
 - Language switching is handled through `/api/lang` (cookie-based proxy)
-- The profile photo flow shows a message if Graph consent is required
+- The profile details flow shows a message if Graph consent is required
