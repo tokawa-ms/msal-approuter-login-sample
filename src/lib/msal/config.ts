@@ -26,8 +26,15 @@ export const msalConfig = {
   },
   system: {
     loggerOptions: {
-      logLevel: LogLevel.Verbose,
-      loggerCallback: (level: LogLevel, message: string) => {
+      logLevel:
+        process.env.NODE_ENV === "production"
+          ? LogLevel.Warning
+          : LogLevel.Verbose,
+      piiLoggingEnabled: false,
+      loggerCallback: (level: LogLevel, message: string, containsPii: boolean) => {
+        if (containsPii) {
+          return;
+        }
         switch (level) {
           case LogLevel.Error:
             console.error("[MSAL]", message);
