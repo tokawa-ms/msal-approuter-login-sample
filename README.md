@@ -2,22 +2,30 @@
 
 日本語 | [English](README-en.md)
 
+![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?logo=tailwindcss&logoColor=white)
+![MSAL.js](https://img.shields.io/badge/MSAL.js-5E5E5E?logo=microsoft&logoColor=white)
+![Microsoft Graph](https://img.shields.io/badge/Microsoft%20Graph-5E5E5E?logo=microsoft&logoColor=white)
+![Azure Container Apps](https://img.shields.io/badge/Azure%20Container%20Apps-0078D4?logo=microsoftazure&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+
 ## 概要
 
-MSAL.js を使った **Microsoft Entra ID ログイン** と、Microsoft Graph API を用いた **プロフィール写真の取得**を組み込んだ Next.js (App Router) の MPA です。フロントと API を同一プロセスで提供し、Azure Container Apps での 1 コンテナー運用を想定しています。
+MSAL.js を使った **Microsoft Entra ID ログイン** と、Microsoft Graph API を用いた **プロフィール情報の取得**を組み込んだ Next.js (App Router) の MPA です。フロントと API を同一プロセスで提供し、Azure Container Apps での 1 コンテナー運用を想定しています。
 
 ## ページ構成
 
 - `/` トップ（非ログインでも表示）
 - `/login` ログインページ
 - `/about` アプリ概要
-- `/items` Microsoft Graph のプロフィール写真
+- `/items` Microsoft Graph のプロフィール情報
 - `/settings` 設定
 
 ## 主な機能
 
 - MSAL.js によるサインイン（Microsoft Entra ID）
-- Microsoft Graph API で本人のプロフィール写真を取得
+- Microsoft Graph API で本人のプロフィール情報を取得
 - 言語切り替え（`/api/lang` を経由して Cookie を設定）
 - ヘルスチェック API: `/api/health`
 
@@ -92,4 +100,4 @@ docker run --rm -p 3000:3000 -e PORT=3000 --env-file .env msal-app-test
 
 - MSAL のログインは `loginRedirect` を利用しています
 - 言語切り替えは `/api/lang` を経由して Cookie を更新します（middleware は未使用）
-- Microsoft Graph の同意が必要な場合、プロフィール写真の取得で案内が出ます
+- Microsoft Graph の同意が必要な場合、プロフィール情報の取得で案内が出ます
